@@ -1,0 +1,15 @@
+---
+collections:
+  - ansible.posix
+  - containers.podman
+  - community.general
+  - community.libvirt
+  - fedora.linux_system_roles
+  - name: https://github.com/tosin2013/openshift_virt_ansible.git
+    type: git
+    version: main
+  #- tosin2013.openshift_virt_ansible
+roles:
+  - linux-system-roles.network
+  - linux-system-roles.firewall
+  - linux-system-roles.cockpit

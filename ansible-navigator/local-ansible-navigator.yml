@@ -1,0 +1,21 @@
+---
+ansible-navigator:
+  ansible:
+    inventory:
+      entries:
+        - /home/admin/openshift_virt_ansible/inventories/localhost
+  execution-environment:
+    container-engine: podman
+    enabled: true
+    environment-variables:
+      pass:
+        - USER
+    image: localhost/openshift_virt_ansible:0.1.0
+    pull:
+      policy: missing
+  logging:
+    append: true
+    file: /tmp/navigator/ansible-navigator.log
+    level: debug
+  playbook-artifact:
+    enable: false
