@@ -66,16 +66,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 - [OpenShift Virtualization Documentation](https://docs.openshift.com/container-platform/latest/virt/about-virt.html)
 - [Ansible Kubernetes Module](https://docs.ansible.com/ansible/latest/collections/kubernetes/core/k8s_module.html)
-- [Ansible KubeVirt Module](https://docs.ansible.com/ansible/latest/collections/community/kubevirt/kubevirt_vm_module.html)
-
-Feel free to customize and expand upon this README template based on your specific repository structure, playbooks, and roles. Include any additional sections or information that would be helpful for users and contributors.
-
-Citations:
-[1] https://github.com/openshift/openshift-ansible/blob/master/README.md
-[2] https://github.com/redhat-developer/app-services-ansible/blob/main/README.md
-[3] https://github.com/kubevirt/kubevirt-ansible/blob/master/README.md
-[4] https://github.com/kubevirt/kubevirt-ansible/blob/master/playbooks/README.md
-[5] https://github.com/openshift-labs/starter-guides/blob/ocp-4.8/README.md
-[6] https://developers.redhat.com/learning/learn:openshift:foundations-openshift/resource/resources:install-application-source-code-github-repository-using-openshift-web-console
-[7] https://github.com/redhat-cop/middleware_ocpv
-[8] https://docs.openshift.com/container-platform/4.9/openshift_images/using-templates.html
+- [Ansible KubeVirt Module](https://docs.ansible.com/ansible/2.9/modules/kubevirt_vm_module.html)
