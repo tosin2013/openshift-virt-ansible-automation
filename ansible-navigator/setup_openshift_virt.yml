@@ -1,0 +1,7 @@
+- name: Configure OpenShift virtualization
+  hosts: control
+  gather_facts: false
+  tasks:
+    - name: Deploy OpenShift virtualization
+      ansible.builtin.include_role:
+        name: tosin2013.openshift_virt_ansible.configure-openshift-virt
