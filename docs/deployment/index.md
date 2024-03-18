@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Deployments Example
+title: Deployment Documenation 
 nav_order: 1
 has_children: true
 ---
-# Deployments Example
+# Deployment documenation 
