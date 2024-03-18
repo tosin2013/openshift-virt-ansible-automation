@@ -55,7 +55,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: /home/runner/work/edge-anomaly-detection/_site # Ensure this path points to the root directory where _site is generated
+          path: /home/runner/work/openshift-virt-ansible-automation/_site # Ensure this path points to the root directory where _site is generated
 
   # Deployment job
   deploy:
