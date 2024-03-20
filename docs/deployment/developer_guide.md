@@ -114,6 +114,7 @@ chmod +x configure-openshift-packages.sh
 ```
 $ ssh-agent bash
 $ ssh-add ~/.ssh/id_rsa
+$ oc login --token=sha256~token --server=https://api.lab.example.com:6443
 $ ansible-navigator run --inventory=inventories/dev ansible-navigator/setup_openshift_virt.yml \
  --vault-password-file $HOME/.vault_password -m stdout 
 ```
