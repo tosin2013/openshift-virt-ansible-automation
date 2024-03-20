@@ -21,7 +21,7 @@ cd $HOME/openshift-virt-ansible-automation/
 
 **Configure SSH**
 ```
-IP_ADDRESS=$(hostname -I | awk '{print $1}')
+IP_ADDRESS=$(hostname -I | awk '{print $1}') # confirm it is the ip address of the control node
 ssh-keygen -f ~/.ssh/id_rsa -t rsa -N ''
 ssh-copy-id $USER@${IP_ADDRESS}
 ```
@@ -58,13 +58,14 @@ EOF
 **Add hosts file**
 ```
 # control_user=${USER}
-# control_host=$(hostname -I | awk '{print $1}')
+# control_host=$(hostname -I | awk '{print $1}') # confirm it is the ip address of the control node
 echo "[control]" > inventories/${INVENTORY}/hosts
 echo "control ansible_host=${control_host} ansible_user=${control_user}  ansible_python_interpreter=/usr/bin/python3" >> inventories/${INVENTORY}/hosts
 # cat inventories/${INVENTORY}/hosts
 ```
 
 **Create Requirement file for ansible builder** 
+Offical `redhat.openshift_virtualization:` https://console.redhat.com/ansible/automation-hub/repo/published/redhat/openshift_virtualization/docs/
 ```
 cat >ansible-builder/requirements.yml<<EOF
 ---
@@ -72,7 +73,7 @@ collections:
   - ansible.posix
   - containers.podman
   - kubernetes.core
-  - kubevirt.core
+  - kubevirt.core # change to redhat.openshift_virtualization is using Ansible Automation Hub
   - name: tosin2013.openshift_virt_ansible
     type: git
     source: https://github.com/tosin2013/openshift_virt_ansible.git
@@ -100,6 +101,13 @@ chmod +x ansible_vault_setup.sh
 **List inventory**
 ```
 ansible-navigator inventory --list --inventory=inventories/dev -m stdout --vault-password-file $HOME/.vault_password
+```
+
+**Install OpenShift CLI**
+```
+curl -OL https://raw.githubusercontent.com/tosin2013/openshift-4-deployment-notes/master/pre-steps/configure-openshift-packages.sh
+chmod +x configure-openshift-packages.sh
+./configure-openshift-packages.sh -i
 ```
 
 **Deploy Openshift  Virtualization**
