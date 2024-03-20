@@ -10,7 +10,7 @@ nav_order: 1
 
 ## Requirements 
 * Install Ansible Navigator
-* Optional `mkdir -p /home/lab-user/.run/container`
+* Optional `mkdir -p /home/${USER}/.run/container`
 
 **Git Clone Repo**
 ```
@@ -29,7 +29,7 @@ ssh-copy-id $USER@${IP_ADDRESS}
 **Create Ansible navigator config file**
 ```
 # export INVENTORY=dev
-# cp -avi inventories/sample/ inventories/${INVENTORY}
+# cp -avi inventories/sample/* inventories/${INVENTORY}
 # cat >~/.ansible-navigator.yml<<EOF
 ---
 ansible-navigator:
@@ -57,10 +57,11 @@ EOF
 
 **Add hosts file**
 ```
-# control_user=lab-user
+# control_user=${USER}
 # control_host=$(hostname -I | awk '{print $1}')
 echo "[control]" > inventories/${INVENTORY}/hosts
-echo "control ansible_host=${control_host} ansible_user=${control_user}" >> inventories/${INVENTORY}/hosts
+echo "control ansible_host=${control_host} ansible_user=${control_user}  ansible_python_interpreter=/usr/bin/python3" >> inventories/${INVENTORY}/hosts
+# cat inventories/${INVENTORY}/hosts
 ```
 
 **Create Requirement file for ansible builder** 
@@ -98,14 +99,14 @@ chmod +x ansible_vault_setup.sh
 
 **List inventory**
 ```
-ansible-navigator inventory --list --inventory=dev -m stdout --vault-password-file $HOME/.vault_password
+ansible-navigator inventory --list --inventory=inventories/dev -m stdout --vault-password-file $HOME/.vault_password
 ```
 
 **Deploy Openshift  Virtualization**
 ```
 $ ssh-agent bash
 $ ssh-add ~/.ssh/id_rsa
-$ ansible-navigator run ansible-navigator/setup_openshift_virt.yml \
+$ ansible-navigator run --inventory=inventories/dev ansible-navigator/setup_openshift_virt.yml \
  --vault-password-file $HOME/.vault_password -m stdout 
 ```
 
