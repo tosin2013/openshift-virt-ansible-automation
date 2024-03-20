@@ -1,15 +1,15 @@
 ---
 collections:
-  - ansible.posix
+  #- ansible.posix
   - containers.podman
-  - community.general
-  - community.libvirt
-  - fedora.linux_system_roles
-  - name: https://github.com/tosin2013/openshift_virt_ansible.git
+  - name: kubernetes.core  # change to redhat.openshift_virtualization is using Ansible Automation Hub
+    version: '>=3.0.1'
+  - kubevirt.core
+  - name: tosin2013.openshift_virt_ansible
     type: git
+    source: https://github.com/tosin2013/openshift_virt_ansible.git
     version: main
-  #- tosin2013.openshift_virt_ansible
-roles:
+roles: 
   - linux-system-roles.network
   - linux-system-roles.firewall
   - linux-system-roles.cockpit
