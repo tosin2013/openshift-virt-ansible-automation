@@ -64,7 +64,7 @@ echo "control ansible_host=${control_host} ansible_user=${control_user}  ansible
 # cat inventories/${INVENTORY}/hosts
 ```
 
-**Create Requirement file for ansible builder** 
+**Create Requirement file for ansible builder**   
 Red Hat KVM Role [redhat.openshift_virtualization:](https://console.redhat.com/ansible/automation-hub/repo/published/redhat/openshift_virtualization/docs/)
 ```
 cat >ansible-builder/requirements.yml<<EOF
