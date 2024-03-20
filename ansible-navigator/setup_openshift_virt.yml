@@ -4,4 +4,4 @@
   tasks:
     - name: Deploy OpenShift virtualization
       ansible.builtin.include_role:
-        name: tosin2013.openshift_virt_ansible.configure-openshift-virt
+        name: tosin2013.openshift_virt_ansible.configure_openshift_virt
